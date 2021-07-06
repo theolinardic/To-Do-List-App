@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.TextField?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="78.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.AddNewListManagerController">
+   <children>
+      <TextField fx:id="newListNameInput" layoutX="100.0" layoutY="13.0" prefHeight="25.0" prefWidth="233.0" />
+      <Text layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New List Name:" wrappingWidth="86.13671875" />
+      <Button layoutX="16.0" layoutY="45.0" mnemonicParsing="false" onAction="#addList" prefHeight="25.0" prefWidth="153.0" text="Add List" />
+      <Button layoutX="183.0" layoutY="45.0" mnemonicParsing="false" onAction="#cancelAddList" prefHeight="25.0" prefWidth="153.0" text="Cancel" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,125 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+class ToDoListManager{
+    main()
+    start()
+}
+
+class ToDoListManagerController{
+    ToDoModel: ToDoListModel
+    AllToDoLists: ListView
+    AllItemsInCurrentToDoList: ListView
+
+    addListButtonClicked()
+    closeProgram()
+    viewAllListItems()
+    viewAllCompleteListItems()
+    viewAllIncompleteListItems()
+    deleteListButtonClicked()
+    editListButtonClicked()
+    viewListButtonClicked()
+    addNewItemToListButtonClicked()
+    deleteCurrentItemFromListButtonClicked()
+    editCurrentItemDescriptionButtonClicked()
+    editCurrentItemDueDateButtonClicked()
+    markItemCompleteButtonClicked()
+    markItemIncompleteButtonClicked()
+
+    'GUI event handelers'
+}
+
+class ToDoListModel{
+    ToDoLists: ArrayList
+
+    addNewToDoList(String newListName)
+    removeToDoList(String listName)
+
+    saveAllLists(String saveLocation)
+    loadList(String saveLocation)
+    loadLists(String saveLocation)
+}
+
+class ToDoListObject{
+    listTitle: String
+    listItems: ArrayList
+    isVisible: Boolean
+
+    ToDoListObject()
+    editToDoListTitle(String newName)
+    addItemToList(String description, String dueDate)
+    displayAllItemsInList()
+    displayAllIncompleteItemsInList()
+    displayAllCompleteItemsInList()
+    saveList(String saveLocation)
+}
+
+class ListItem{
+    itemDescription: String
+    itemDueDate: String
+    isCompleted: Boolean
+
+    ListItem()
+    markItemComplete()
+    markItemIncomplete()
+    editItemDescription(String newDescription)
+    editItemDueDate(String newDueDate)
+    removeItemFromList()
+}
+
+class AddNewListManager{
+
+    main()
+    start()
+
+}
+
+class AddNewListManagerController{
+    newListNameInput: TextField
+
+    addList()
+    cancelAddList()
+}
+
+class EditItemDescriptionManager{
+    main()
+    start()
+}
+
+class EditItemDescriptionManagerController{
+    newDescriptionInput: TextField
+
+    changeDescription()
+    cancel()
+}
+
+class EditItemDueDateManager{
+    main()
+    start()
+}
+
+class EditItemDueDateManagerController{
+    newDueDateInput: TextField
+
+    changeDueDate()
+    cancel()
+}
+
+org.javafx.Application <|-- ToDoListManager
+ToDoListManager-- ToDoListManagerController
+ToDoListManagerController -- ToDoListModel
+ToDoListModel *->ToDoListObject
+ToDoListObject *-> ListItem
+
+ToDoListManagerController -- AddNewListManager
+AddNewListManager -- AddNewListManagerController
+
+EditItemDescriptionManager -- AddNewListManager
+EditItemDescriptionManager -- EditItemDescriptionManagerController
+
+EditItemDueDateManager -- AddNewListManager
+EditItemDueDateManagerController --EditItemDueDateManager
+
+
+@enduml
