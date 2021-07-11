@@ -18,6 +18,7 @@ public class AddNewListManagerController {
 
     public void addList(ActionEvent actionEvent) {
         // Call function 'addNewToDoList' with paramter newListNameInput in class ToDoListModel
+
     }
 
     public void cancelAddList(ActionEvent actionEvent) {

@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 public class ToDoListObject {
 
-    String listTitle;
     ArrayList<ListItem> listItems = new ArrayList<ListItem>();
     Boolean isVisible;
     
@@ -17,12 +16,14 @@ public class ToDoListObject {
         isVisible = true;
     }
 
-    public static void editToDoListTitle(String newName){
-        //Change listTitle to value of NewName.
-    }
 
-    public static void addItemToList(String description, String dueDate){
+    public void addItemToList(String description, String dueDate){
         //Add New Item with description 'description' and due date 'dueDate' to listItems array.
+
+        ListItem newListItem = new ListItem();
+        newListItem.itemDescription = description;
+        newListItem.itemDueDate = dueDate;
+        listItems.add(newListItem);
     }
 
     public static void displayAllItemsInList(){
@@ -49,5 +50,14 @@ public class ToDoListObject {
         // close file
 
     }
+
+    public static void loadList(String saveLocation){
+        //if file does not exist at saveLocation
+        //      create directory and file
+        //open file at saveLocation
+        // write data of list to file
+        // close file
+    }
+
 
 }

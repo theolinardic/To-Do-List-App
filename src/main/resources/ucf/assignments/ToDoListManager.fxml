@@ -5,83 +5,55 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="429.0" prefWidth="566.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoListManagerController">
+<AnchorPane prefHeight="429.0" prefWidth="371.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ToDoListManagerController">
    <children>
-      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="566.0">
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="417.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#closeProgram" text="Close Program" />
+                  <MenuItem mnemonicParsing="false" onAction="#clearListButtonClicked" text="Clear List" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveListButtonClicked" text="Save List" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadListButtonClicked" text="Load List" />
+                  <MenuItem mnemonicParsing="false" onAction="#closeProgramButtonClicked" text="Close Program" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="View">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#viewAllListItems" text="View All Items" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewAllCompleteListItems" text="View All Complete Items" />
-                  <MenuItem mnemonicParsing="false" onAction="#viewAllIncompleteListItems" text="View All Incomplete Items" />
+              <MenuItem mnemonicParsing="false" onAction="#viewAllListItemsButtonClicked" text="View All Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllCompleteListItemsButtonClicked" text="View All Complete Items" />
+                  <MenuItem mnemonicParsing="false" onAction="#viewAllIncompleteListItemsButtonClicked" text="View All Incomplete Items" />
             </items>
           </Menu>
         </menus>
       </MenuBar>
-      <VBox layoutY="53.0" prefHeight="307.0" prefWidth="184.0">
+      <VBox layoutX="20.0" layoutY="73.0" prefHeight="284.0" prefWidth="375.0">
          <children>
-            <ListView fx:id="AllToDoLists" prefHeight="326.0" prefWidth="184.0" />
+            <ListView fx:id="AllItemsInToDoList" editable="true" prefHeight="283.0" prefWidth="410.0" />
          </children>
       </VBox>
-      <VBox layoutX="190.0" layoutY="76.0" prefHeight="284.0" prefWidth="375.0">
-         <children>
-            <ListView fx:id="AllItemsInCurrentToDoList" prefHeight="283.0" prefWidth="410.0" />
-         </children>
-      </VBox>
-      <Text fx:id="CurrentlySelectedToDoListLabel" layoutX="207.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Currently Selected To-Do List" wrappingWidth="357.13671875">
+      <Text fx:id="CurrentlySelectedToDoListLabel" layoutX="29.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="357.13671875">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Button layoutY="360.0" mnemonicParsing="false" onAction="#addListButtonClicked" prefHeight="33.0" prefWidth="92.0" text="Add New List">
-         <tooltip>
-            <Tooltip text="Add A New To-Do List" />
-         </tooltip>
-      </Button>
-      <Button layoutX="92.0" layoutY="360.0" mnemonicParsing="false" onAction="#deleteListButtonClicked" prefHeight="33.0" prefWidth="92.0" text="Delete List">
-         <tooltip>
-            <Tooltip text="Delete The Currently Selected To-Do List" />
-         </tooltip>
-      </Button>
-      <Button layoutY="393.0" mnemonicParsing="false" onAction="#editListButtonClicked" prefHeight="33.0" prefWidth="92.0" text="Edit List Title">
-         <tooltip>
-            <Tooltip text="Edit The Title Of The Currently Selected To-Do List" />
-         </tooltip>
-      </Button>
-      <Button layoutX="92.0" layoutY="393.0" mnemonicParsing="false" onAction="#viewListButtonClicked" prefHeight="33.0" prefWidth="92.0" text="View List">
-         <tooltip>
-            <Tooltip text="View The Contents Of The Currently Selected To-Do List" />
-         </tooltip>
-      </Button>
-      <Button layoutX="190.0" layoutY="360.0" mnemonicParsing="false" onAction="#addNewItemToListButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Add New Item" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="190.0" layoutY="393.0" mnemonicParsing="false" onAction="#deleteCurrentItemFromListButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Delete Current Item" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="315.0" layoutY="360.0" mnemonicParsing="false" onAction="#editCurrentItemDescriptionButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Edit Item Description" textAlignment="CENTER" wrapText="true">
+      <Button layoutX="20.0" layoutY="357.0" mnemonicParsing="false" onAction="#addNewItemToListButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Add New Item" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="20.0" layoutY="390.0" mnemonicParsing="false" onAction="#deleteCurrentItemFromListButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Delete Current Item" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="145.0" layoutY="357.0" mnemonicParsing="false" onAction="#editCurrentItemDescriptionButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Edit Item Description" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="315.0" layoutY="393.0" mnemonicParsing="false" onAction="#editCurrentItemDueDateButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Edit Item Due Date" textAlignment="CENTER" wrapText="true">
+      <Button layoutX="145.0" layoutY="390.0" mnemonicParsing="false" onAction="#editCurrentItemDueDateButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Edit Item Due Date" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="11.0" />
          </font>
       </Button>
-      <Button layoutX="440.0" layoutY="360.0" mnemonicParsing="false" onAction="#markItemCompleteButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Mark As Complete" textAlignment="CENTER" wrapText="true" />
-      <Button layoutX="440.0" layoutY="393.0" mnemonicParsing="false" onAction="#markItemIncompleteButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Mark As Incomplete" textAlignment="CENTER" wrapText="true" />
-      <Text layoutX="10.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="All To-Do Lists" textAlignment="CENTER" wrappingWidth="163.13671875">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Text>
+      <Button layoutX="270.0" layoutY="357.0" mnemonicParsing="false" onAction="#markItemCompleteButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Mark As Complete" textAlignment="CENTER" wrapText="true" />
+      <Button layoutX="270.0" layoutY="390.0" mnemonicParsing="false" onAction="#markItemIncompleteButtonClicked" prefHeight="33.0" prefWidth="125.0" text="Mark As Incomplete" textAlignment="CENTER" wrapText="true" />
    </children>
 </AnchorPane>

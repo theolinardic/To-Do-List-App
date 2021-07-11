@@ -9,50 +9,35 @@ class ToDoListManager{
 
 class ToDoListManagerController{
     ToDoModel: ToDoListModel
-    AllToDoLists: ListView
-    AllItemsInCurrentToDoList: ListView
+    AllItemsInToDoList: ListView
+    CurrentlySelectedToDoListLabel: Text
 
-    addListButtonClicked()
-    closeProgram()
-    viewAllListItems()
-    viewAllCompleteListItems()
-    viewAllIncompleteListItems()
-    deleteListButtonClicked()
-    editListButtonClicked()
-    viewListButtonClicked()
+    closeProgramBUttonClicked()
+    viewAllListItemsButtonClicked()
+    viewAllCompleteListItemsButtonClicked()
+    viewAllIncompleteListItemsButtonClicked()
     addNewItemToListButtonClicked()
     deleteCurrentItemFromListButtonClicked()
     editCurrentItemDescriptionButtonClicked()
     editCurrentItemDueDateButtonClicked()
     markItemCompleteButtonClicked()
     markItemIncompleteButtonClicked()
+    clearListButtonClicked()
 
     'GUI event handelers'
 }
 
-class ToDoListModel{
-    ToDoLists: ArrayList
-
-    addNewToDoList(String newListName)
-    removeToDoList(String listName)
-
-    saveAllLists(String saveLocation)
-    loadList(String saveLocation)
-    loadLists(String saveLocation)
-}
-
 class ToDoListObject{
-    listTitle: String
     listItems: ArrayList
     isVisible: Boolean
 
     ToDoListObject()
-    editToDoListTitle(String newName)
     addItemToList(String description, String dueDate)
     displayAllItemsInList()
     displayAllIncompleteItemsInList()
     displayAllCompleteItemsInList()
     saveList(String saveLocation)
+    loadList(String saveLocation)
 }
 
 class ListItem{
@@ -109,7 +94,6 @@ class EditItemDueDateManagerController{
 org.javafx.Application <|-- ToDoListManager
 ToDoListManager-- ToDoListManagerController
 ToDoListManagerController -- ToDoListModel
-ToDoListModel *->ToDoListObject
 ToDoListObject *-> ListItem
 
 ToDoListManagerController -- AddNewListManager

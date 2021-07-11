@@ -6,10 +6,14 @@
 package ucf.assignments;
 
 import javafx.application.Application;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -17,62 +21,62 @@ import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class ToDoListManagerController {
 
+    public ToDoListObject userToDoList = new ToDoListObject();
+
     @FXML
     public Text CurrentlySelectedToDoListLabel;
-    
-    @FXML
-    private ListView AllToDoLists;
 
     @FXML
-    private ListView AllItemsInCurrentToDoList;
-
-
+    private ListView AllItemsInToDoList;
 
     @FXML
-    public void addListButtonClicked(ActionEvent actionEvent){
-        // This function opens a new window of 'AddNewListManager'.
-        AllToDoLists.getItems().add("test");
-    }
+    private TableColumn DueDateItemsDisplay;
 
     @FXML
-    public void closeProgram(ActionEvent actionEvent) {
+    private TableColumn TaskItemsDisplay;
+
+    @FXML
+    public void closeProgramButtonClicked(ActionEvent actionEvent) {
         //This function will close the program.
+        //System.exit(0);
+        ListItem newListItem = new ListItem();
+        newListItem.itemDueDate = "1920-23-12";
+        newListItem.itemDescription = "TestItem";
+        userToDoList.listItems.add(newListItem);
     }
 
     @FXML
-    public void viewAllListItems(ActionEvent actionEvent) {
+    public void viewAllListItemsButtonClicked(ActionEvent actionEvent) {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Item
+
+       // AllItemsInToDoList = new ListView<String>();
+
+        for(int i = 0; i < userToDoList.listItems.size(); i++){
+            String listItemToAdd = userToDoList.listItems.get(i).itemDescription + " --- " + userToDoList.listItems.get(i).itemDueDate;
+            //System.out.print(listItemToAdd);
+            AllItemsInToDoList.getItems().add(listItemToAdd);
+        }
+        System.out.print(AllItemsInToDoList.getItems().get(0));
+        AllItemsInToDoList.refresh();
+
+
     }
 
     @FXML
-    public void viewAllCompleteListItems(ActionEvent actionEvent) {
+    public void viewAllCompleteListItemsButtonClicked(ActionEvent actionEvent) {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Complete item and hide all non completed items.
     }
 
     @FXML
-    public void viewAllIncompleteListItems(ActionEvent actionEvent) {
+    public void viewAllIncompleteListItemsButtonClicked(ActionEvent actionEvent) {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Incomplete item and hide all completed items.
-    }
-
-    @FXML
-    public void deleteListButtonClicked(ActionEvent actionEvent) {
-        //Call function removeToDoList in ToDoListModel and pass through name of currently selected to do list.
-    }
-
-    @FXML
-    public void editListButtonClicked(ActionEvent actionEvent) {
-        //Call function editToDoList in ToDoListObject and pass through name of currently selected to do list.
-    }
-
-    @FXML
-    public void viewListButtonClicked(ActionEvent actionEvent) {
-        //Call function displayAllItemsInList in ToDoListObject and pass through name of currently selected to do lkist.
     }
 
     @FXML
@@ -103,5 +107,20 @@ public class ToDoListManagerController {
     @FXML
     public void markItemIncompleteButtonClicked(ActionEvent actionEvent) {
         // Call function markItemIncomplete on object ListItem based on the current list item that is selected.
+    }
+
+    @FXML
+    public void clearListButtonClicked(ActionEvent actionEvent){
+
+    }
+
+    @FXML
+    public void saveListButtonClicked(ActionEvent actionEvent){
+
+    }
+
+    @FXML
+    public void loadListButtonClicked(ActionEvent actionEvent){
+
     }
 }
