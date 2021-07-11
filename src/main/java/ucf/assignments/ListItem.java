@@ -15,24 +15,24 @@ public class ListItem {
         isCompleted = false;
     }
 
-    public static void markItemComplete(){
-        //Set isCompleted to true.
+    public void markItemComplete(){
+        isCompleted = true;
     }
 
-    public static void markItemIncomplete(){
+    public void markItemIncomplete(){
         //Set isCompleted to false.
+        isCompleted = false;
     }
 
-    public static void editItemDescription(String newDescription){
+    public void editItemDescription(String newDescription){
         //Change current objects itemDescription string to the new string provided with paramter newDescription.
+        itemDescription = newDescription;
     }
 
-    public static void editItemDueDate(String newDueDate){
+    public void editItemDueDate(String newDueDate){
         //Change current objects itemDueDate string to the new string provided with paramter newDueDate.
+        itemDueDate = newDueDate;
     }
 
-    public static void removeItemFromList(){
-        //Delete the current item.
-    }
 
 }

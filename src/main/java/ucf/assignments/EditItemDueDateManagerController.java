@@ -7,13 +7,16 @@ package ucf.assignments;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+
+import java.time.format.DateTimeFormatter;
 
 public class EditItemDueDateManagerController {
 
     @FXML
-    public TextField newDueDateInput;
+    public DatePicker newDueDateInput;
 
     @FXML
     public void changeDueDate(ActionEvent actionEvent) {
@@ -21,7 +24,7 @@ public class EditItemDueDateManagerController {
         // Call function 'editItemDueDate' with paramter newDueDateInput in class ListItem.
         // Call on ListItem object based on currently selected item.
 
-        ToDoListManagerController.editItemDueDate(newDueDateInput.getText());
+        ToDoListManagerController.editItemDueDate(newDueDateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         Stage stage = (Stage) newDueDateInput.getScene().getWindow();
 

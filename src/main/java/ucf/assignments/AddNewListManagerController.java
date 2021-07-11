@@ -7,14 +7,17 @@ package ucf.assignments;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.time.format.DateTimeFormatter;
+
 public class AddNewListManagerController {
 
     @FXML
-    private TextField newItemDueDateInput;
+    private DatePicker newItemDueDateInput;
 
     @FXML
     private TextField newItemNameInput;
@@ -22,7 +25,7 @@ public class AddNewListManagerController {
 
     public void addList(ActionEvent actionEvent) {
         // Call function 'addNewToDoList' with paramter newListNameInput in class ToDoListModel
-        ToDoListManagerController.addItemToList(newItemNameInput.getText(),newItemDueDateInput.getText());
+        ToDoListManagerController.addItemToList(newItemNameInput.getText(),newItemDueDateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         Stage stage = (Stage) newItemDueDateInput.getScene().getWindow();
 

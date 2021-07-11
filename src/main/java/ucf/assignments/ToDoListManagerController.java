@@ -82,7 +82,6 @@ public class ToDoListManagerController {
                 AllItemsInToDoList.getItems().add(listItemToAdd);
             }
         }
-        System.out.print(AllItemsInToDoList.getItems().get(0));
         AllItemsInToDoList.refresh();
     }
 
@@ -318,10 +317,10 @@ public class ToDoListManagerController {
     }
 
     public static void addItemToList(String description, String dueDate) {
-        ListItem newListItem = new ListItem();
-        newListItem.itemDescription = description;
-        newListItem.itemDueDate = dueDate;
-        userToDoList.listItems.add(newListItem);
+        if(description.length() > 0 && description.length() < 257){
+            userToDoList.addItemToList(description, dueDate);
+        }
+
     }
 
     public static void editItemDescription(String newDescription){
