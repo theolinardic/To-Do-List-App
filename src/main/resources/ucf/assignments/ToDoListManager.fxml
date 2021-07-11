@@ -33,7 +33,7 @@
       </MenuBar>
       <VBox layoutX="20.0" layoutY="73.0" prefHeight="284.0" prefWidth="375.0">
          <children>
-            <ListView fx:id="AllItemsInToDoList" editable="true" prefHeight="283.0" prefWidth="410.0" />
+            <ListView fx:id="AllItemsInToDoList" editable="true" onEditCommit="#viewAllListItemsButtonClicked" prefHeight="283.0" prefWidth="410.0" />
          </children>
       </VBox>
       <Text fx:id="CurrentlySelectedToDoListLabel" layoutX="29.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To-Do List" textAlignment="CENTER" wrappingWidth="357.13671875">

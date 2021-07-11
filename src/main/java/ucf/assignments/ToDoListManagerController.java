@@ -25,7 +25,7 @@ import java.util.ArrayList;
 
 public class ToDoListManagerController {
 
-    public ToDoListObject userToDoList = new ToDoListObject();
+    public static ToDoListObject userToDoList = new ToDoListObject();
 
     @FXML
     public Text CurrentlySelectedToDoListLabel;
@@ -54,7 +54,8 @@ public class ToDoListManagerController {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Item
 
-       // AllItemsInToDoList = new ListView<String>();
+
+        AllItemsInToDoList.getItems().clear();
 
         for(int i = 0; i < userToDoList.listItems.size(); i++){
             String listItemToAdd = userToDoList.listItems.get(i).itemDescription + " --- " + userToDoList.listItems.get(i).itemDueDate;
@@ -63,30 +64,70 @@ public class ToDoListManagerController {
         }
         System.out.print(AllItemsInToDoList.getItems().get(0));
         AllItemsInToDoList.refresh();
-
-
     }
 
     @FXML
     public void viewAllCompleteListItemsButtonClicked(ActionEvent actionEvent) {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Complete item and hide all non completed items.
+
+        AllItemsInToDoList.getItems().clear();
+
+        for(int i = 0; i < userToDoList.listItems.size(); i++){
+            if(userToDoList.listItems.get(i).isCompleted == true){
+                String listItemToAdd = userToDoList.listItems.get(i).itemDescription + " --- " + userToDoList.listItems.get(i).itemDueDate;
+                //System.out.print(listItemToAdd);
+                AllItemsInToDoList.getItems().add(listItemToAdd);
+            }
+        }
+        System.out.print(AllItemsInToDoList.getItems().get(0));
+        AllItemsInToDoList.refresh();
     }
 
     @FXML
     public void viewAllIncompleteListItemsButtonClicked(ActionEvent actionEvent) {
         // For int = 0; int < totalNumberOfItems
         //      Display Every Incomplete item and hide all completed items.
+
+        AllItemsInToDoList.getItems().clear();
+
+        for(int i = 0; i < userToDoList.listItems.size(); i++){
+            if(userToDoList.listItems.get(i).isCompleted == false){
+                String listItemToAdd = userToDoList.listItems.get(i).itemDescription + " --- " + userToDoList.listItems.get(i).itemDueDate;
+                //System.out.print(listItemToAdd);
+                AllItemsInToDoList.getItems().add(listItemToAdd);
+            }
+        }
+        System.out.print(AllItemsInToDoList.getItems().get(0));
+        AllItemsInToDoList.refresh();
     }
 
     @FXML
     public void addNewItemToListButtonClicked(ActionEvent actionEvent) {
         //Open window 'AddNewListManager'.
+
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("AddNewListManager.fxml"));
+
+            Scene scene = new Scene(root);
+
+            Stage stage = new Stage();
+
+            stage.setScene(scene);
+            stage.setTitle("Add New Item");
+            stage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     @FXML
     public void deleteCurrentItemFromListButtonClicked(ActionEvent actionEvent) {
         //Call function removeItemFromList on listItem. Find listItem based on currently selected to do list and item.
+
+        AllItemsInToDoList.getSelectionModel().getSelectedItems();
     }
 
     @FXML
@@ -123,4 +164,13 @@ public class ToDoListManagerController {
     public void loadListButtonClicked(ActionEvent actionEvent){
 
     }
+
+    public static void addItemToList(String description, String dueDate) {
+        ListItem newListItem = new ListItem();
+        newListItem.itemDescription = description;
+        newListItem.itemDueDate = dueDate;
+        userToDoList.listItems.add(newListItem);
+    }
+
+
 }
