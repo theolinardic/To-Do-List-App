@@ -27,11 +27,21 @@ public class EditItemDescriptionManagerController {
     public void changeDescription(ActionEvent actionEvent) {
         // Call function 'editItemDescription' with paramter newDescriptionInput in class ListItem.
         // Call on ListItem object based on currently selected item.
+
+        ToDoListManagerController.editItemDescription(newDescriptionInput.getText());
+
+        Stage stage = (Stage) newDescriptionInput.getScene().getWindow();
+
+        stage.close();
     }
 
     @FXML
     public void cancel(ActionEvent actionEvent) {
         // Close window.
+
+        Stage stage = (Stage) newDescriptionInput.getScene().getWindow();
+
+        stage.close();
     }
 
 }

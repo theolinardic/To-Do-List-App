@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="78.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.LoadFileManagerController">
+   <children>
+      <Text layoutX="13.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Load File Path:" wrappingWidth="86.13671875" />
+      <Button layoutX="16.0" layoutY="45.0" mnemonicParsing="false" onAction="#loadFileButtonClicked" prefHeight="25.0" prefWidth="153.0" text="Save File" />
+      <Button layoutX="183.0" layoutY="45.0" mnemonicParsing="false" onAction="#cancel" prefHeight="25.0" prefWidth="153.0" text="Cancel" />
+      <TextField fx:id="filePath" layoutX="95.0" layoutY="13.0" prefHeight="25.0" prefWidth="241.0" />
+   </children>
+</AnchorPane>

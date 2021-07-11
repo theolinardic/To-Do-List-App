@@ -33,5 +33,10 @@ public class AddNewListManagerController {
 
     public void cancelAddList(ActionEvent actionEvent) {
         // Close current window
+
+        Stage stage = (Stage) newItemDueDateInput.getScene().getWindow();
+
+        stage.close();
+
     }
 }
