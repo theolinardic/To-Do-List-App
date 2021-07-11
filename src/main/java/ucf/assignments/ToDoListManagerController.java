@@ -38,12 +38,6 @@ public class ToDoListManagerController {
     private ListView AllItemsInToDoList;
 
     @FXML
-    private TableColumn DueDateItemsDisplay;
-
-    @FXML
-    private TableColumn TaskItemsDisplay;
-
-    @FXML
     public void closeProgramButtonClicked(ActionEvent actionEvent) {
         //This function will close the program.
         System.exit(0);

@@ -8,9 +8,11 @@ class ToDoListManager{
 }
 
 class ToDoListManagerController{
-    ToDoModel: ToDoListModel
+    UserToDoList: ToDoListObject
     AllItemsInToDoList: ListView
+    currrentlySelected: String
     CurrentlySelectedToDoListLabel: Text
+
 
     closeProgramBUttonClicked()
     viewAllListItemsButtonClicked()
@@ -23,6 +25,13 @@ class ToDoListManagerController{
     markItemCompleteButtonClicked()
     markItemIncompleteButtonClicked()
     clearListButtonClicked()
+    saveListButtonClicked()
+    loadListButtonClicked()
+    addItemToList()
+    editItemDescription()
+    editItemDueDate()
+    saveFile()
+    loadFile()
 
     'GUI event handelers'
 }
@@ -53,23 +62,12 @@ class ListItem{
     removeItemFromList()
 }
 
-class AddNewListManager{
-
-    main()
-    start()
-
-}
 
 class AddNewListManagerController{
     newListNameInput: TextField
 
     addList()
     cancelAddList()
-}
-
-class EditItemDescriptionManager{
-    main()
-    start()
 }
 
 class EditItemDescriptionManagerController{
@@ -79,11 +77,6 @@ class EditItemDescriptionManagerController{
     cancel()
 }
 
-class EditItemDueDateManager{
-    main()
-    start()
-}
-
 class EditItemDueDateManagerController{
     newDueDateInput: TextField
 
@@ -91,19 +84,31 @@ class EditItemDueDateManagerController{
     cancel()
 }
 
+class LoadFileManagerController{
+    filePath: TextField
+
+    loadFileButtonClicked()
+    cancel()
+}
+
+class SaveFileManagerController{
+filePath: TextField
+
+    saveFileButtonClicked()
+    cancel()
+}
+
 org.javafx.Application <|-- ToDoListManager
-ToDoListManager-- ToDoListManagerController
-ToDoListManagerController -- ToDoListModel
+ToDoListManager -- ToDoListManagerController
 ToDoListObject *-> ListItem
+ToDoListObject -- ToDoListManagerController
 
-ToDoListManagerController -- AddNewListManager
-AddNewListManager -- AddNewListManagerController
+AddNewListManagerController -- ToDoListManagerController
+EditItemDescriptionManagerController -- ToDoListManagerController
+EditItemDueDateManagerController -- ToDoListManagerController
+LoadFileManagerController -- ToDoListManagerController
+SaveFileManagerController -- ToDoListManagerController
 
-EditItemDescriptionManager -- AddNewListManager
-EditItemDescriptionManager -- EditItemDescriptionManagerController
-
-EditItemDueDateManager -- AddNewListManager
-EditItemDueDateManagerController --EditItemDueDateManager
 
 
 @enduml

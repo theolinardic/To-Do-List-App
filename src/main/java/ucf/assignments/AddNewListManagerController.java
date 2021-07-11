@@ -24,7 +24,9 @@ public class AddNewListManagerController {
 
 
     public void addList(ActionEvent actionEvent) {
-        // Call function 'addNewToDoList' with paramter newListNameInput in class ToDoListModel
+        // Call function 'addItemToList' with text in TextField and DatePiccker date.
+        // Close Window
+
         ToDoListManagerController.addItemToList(newItemNameInput.getText(),newItemDueDateInput.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
 
         Stage stage = (Stage) newItemDueDateInput.getScene().getWindow();

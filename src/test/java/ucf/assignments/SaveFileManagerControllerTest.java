@@ -4,13 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class EditItemDueDateManagerTest {
+class SaveFileManagerControllerTest {
 
     @Test
-    void main() {
+    void saveFileButtonClicked() {
     }
 
     @Test
-    void start() {
+    void cancel() {
     }
 }
