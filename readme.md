@@ -1,3 +1,5 @@
+Note: This was completed as an assigment for a course at the University of Central Florida.
+
 This application is dedicated to Rey.
 
 This To-Do List Manager application can help the user to manage
